@@ -8,18 +8,20 @@ body {
     border-radius: 50%;
     background-color: transparent;
     position: absolute;
-    transform: translate(-25px, -25px);
-    border: solid 1px aqua;
+    transform: translate(-50%, -50%);
+    border: solid 1px blueviolet;
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
-    &::after {
-        content: '';
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: aqua;
-    }
+#cercle::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: blueviolet;
+    transform-origin: center;
+    transform: rotate(var(--rotation, 0deg)) translate(20px);
+    border-radius: 50%;
 }

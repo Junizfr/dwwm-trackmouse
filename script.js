@@ -3,6 +3,14 @@
 const cercle = document.getElementById('cercle');
 
 document.addEventListener('mousemove', (event) => {
-    cercle.style.left = `${event.clientX}px`;
-    cercle.style.top = `${event.clientY}px`;
-})
+    const { clientX: x, clientY: y } = event;
+    const rect = cercle.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    const angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI);
+
+    cercle.style.left = `${x}px`;
+    cercle.style.top = `${y}px`;
+    cercle.style.setProperty('--rotation', `${angle}deg`);
+});
